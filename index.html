@@ -5,10 +5,16 @@
     <title>my page</title>
   </head>
   <body>
-    The site
+    <h1>WebGL and GPU.js</h1>
+    <canvas id="webgl" width="400" height="400"></canvas>
     <script src="lib/gpu-browser.min.js"></script>
     <script type="text/javascript">
-      const gpu = new GPU();
+      let canvas = document.getElementById("webgl");
+      let gl = canvas.getContext("webgl");
+      const gpu = new GPU({
+        canvas: canvas,
+        context: gl
+      });
       console.log(gpu);
     </script>
   </body>
